@@ -1,20 +1,18 @@
 package io.hammerhall.streamforge.task.levek01;
 
-import io.hammerhall.streamforge.domain.movie.Movie;
-import io.hammerhall.streamforge.task.BaseTest;
-import lombok.NonNull;
-
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
-
-import java.util.Collection;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import io.hammerhall.streamforge.domain.movie.Movie;
+import io.hammerhall.streamforge.task.BaseTest;
+import java.util.Collection;
+import java.util.List;
+import lombok.NonNull;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 
 @DisplayName("Easy Tasks: Starter block")
 public class Easy01StarterTest extends BaseTest {

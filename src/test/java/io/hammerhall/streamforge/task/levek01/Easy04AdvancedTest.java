@@ -1,24 +1,20 @@
 package io.hammerhall.streamforge.task.levek01;
 
-import io.hammerhall.streamforge.domain.movie.Movie;
-import io.hammerhall.streamforge.domain.world.Country;
-import io.hammerhall.streamforge.task.BaseTest;
-import lombok.NonNull;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
-
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.List;
-import java.util.function.Predicate;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import io.hammerhall.streamforge.domain.movie.Movie;
+import io.hammerhall.streamforge.domain.world.Country;
+import io.hammerhall.streamforge.task.BaseTest;
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.IntStream;
+import lombok.NonNull;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 
 @DisplayName("Easy Tasks: Advanced block")
 class Easy04AdvancedTest extends BaseTest {

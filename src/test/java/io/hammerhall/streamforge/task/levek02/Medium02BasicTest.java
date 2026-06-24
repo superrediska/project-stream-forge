@@ -1,30 +1,25 @@
 package io.hammerhall.streamforge.task.levek02;
 
-import io.hammerhall.streamforge.domain.movie.Director;
-import io.hammerhall.streamforge.domain.movie.Genre;
-import io.hammerhall.streamforge.domain.movie.Movie;
-import io.hammerhall.streamforge.domain.world.Country;
-import io.hammerhall.streamforge.task.BaseTest;
-import lombok.NonNull;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.List;
-import java.util.LongSummaryStatistics;
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import io.hammerhall.streamforge.domain.movie.Movie;
+import io.hammerhall.streamforge.domain.world.Country;
+import io.hammerhall.streamforge.task.BaseTest;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.LongSummaryStatistics;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.stream.IntStream;
+import lombok.NonNull;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 
 @DisplayName("Medium Tasks: Basic block")
 class Medium02BasicTest extends BaseTest {

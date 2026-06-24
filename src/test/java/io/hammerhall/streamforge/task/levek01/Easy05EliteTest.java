@@ -1,24 +1,19 @@
 package io.hammerhall.streamforge.task.levek01;
 
-import io.hammerhall.streamforge.domain.world.City;
-import io.hammerhall.streamforge.domain.world.Country;
-import io.hammerhall.streamforge.task.BaseTest;
-import lombok.NonNull;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
-
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import io.hammerhall.streamforge.domain.world.City;
+import io.hammerhall.streamforge.domain.world.Country;
+import io.hammerhall.streamforge.task.BaseTest;
+import java.util.List;
+import java.util.Objects;
+import lombok.NonNull;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 
 public class Easy05EliteTest extends BaseTest {
 

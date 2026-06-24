@@ -1,18 +1,16 @@
 package io.hammerhall.streamforge.task.levek02;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import io.hammerhall.streamforge.domain.movie.Director;
 import io.hammerhall.streamforge.domain.movie.Movie;
-import io.hammerhall.streamforge.domain.world.City;
 import io.hammerhall.streamforge.domain.world.Country;
 import io.hammerhall.streamforge.task.BaseTest;
-import lombok.NonNull;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
-
 import java.util.Collection;
-import java.util.Comparator;
-import java.util.HashMap;
 import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
@@ -20,12 +18,10 @@ import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import lombok.NonNull;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 
 @DisplayName("Medium Tasks: Advanced block")
 class Medium04AdvancedTest extends BaseTest {
@@ -79,8 +75,6 @@ class Medium04AdvancedTest extends BaseTest {
             System.out.println(continent);
         }
     }
-
-
 
     @Nested
     @DisplayName("MA03. Задание: Получить список всех режиссёров фильмов без создания промежуточных коллекций.")
@@ -249,10 +243,4 @@ class Medium04AdvancedTest extends BaseTest {
             System.out.println(summary);
         }
     }
-
-
-
-    @Nested
-    @DisplayName("MA07. Задание: Найти коэффициент урбанизации (доля населения, живущего в городах)")
-
 }

@@ -3,11 +3,10 @@ package io.hammerhall.streamforge.repository;
 import io.hammerhall.streamforge.domain.movie.Director;
 import io.hammerhall.streamforge.domain.movie.Genre;
 import io.hammerhall.streamforge.domain.movie.Movie;
-import lombok.Getter;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import lombok.Getter;
 
 @Getter
 public class MovieRepository {

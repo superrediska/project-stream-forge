@@ -2,7 +2,6 @@ package io.hammerhall.streamforge.service;
 
 import io.hammerhall.streamforge.domain.movie.Movie;
 import io.hammerhall.streamforge.repository.MovieRepository;
-
 import java.util.Collection;
 import java.util.Map;
 
