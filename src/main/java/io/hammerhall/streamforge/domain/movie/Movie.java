@@ -13,7 +13,7 @@ public class Movie {
 	private int id;
 	private String title;
 	private int year;
-	private String imdb;
+	private Double rank;
 	private List<Genre> genres;
 	private List<Director> directors;
 
@@ -22,14 +22,7 @@ public class Movie {
 		directors = new ArrayList<>();
 	}
 
-	public Movie(int id, String title, int year, String imdb) {
-		this.id = id;
-		this.title = title;
-		this.year = year;
-		this.imdb = imdb;
-	}
-
-    @Override
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -40,15 +33,13 @@ public class Movie {
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) return true;
-		if (obj == null) return false;
-		if (getClass() != obj.getClass()) return false;
+		if (obj == null || getClass() != obj.getClass()) return false;
 		Movie other = (Movie) obj;
-        return id == other.id;
-    }
+		return id == other.id;
+	}
 
 	@Override
 	public String toString() {
 		return "Movie [title = %s, year = %d]".formatted(title, year);
 	}
-
 }

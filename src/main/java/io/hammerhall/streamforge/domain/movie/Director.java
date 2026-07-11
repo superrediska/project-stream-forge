@@ -1,18 +1,20 @@
 package io.hammerhall.streamforge.domain.movie;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 public class Director {
 
 	private int id;
-	private String name;
-	private String imdb;
+	private String firstName;
+	private String lastName;
+
+	public String getFullName() {
+		return (firstName + " " + lastName).trim();
+	}
 
 	@Override
 	public int hashCode() {
@@ -25,15 +27,14 @@ public class Director {
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) return true;
-		if (obj == null) return false;
-		if (getClass() != obj.getClass()) return false;
+		if (obj == null || getClass() != obj.getClass()) return false;
 		Director other = (Director) obj;
-        return id == other.id;
-    }
+		return id == other.id;
+	}
 
 	@Override
 	public String toString() {
-		return "Director [id=" + id + ", name=" + name + ", imdb=" + imdb + "]";
+		return "Director [id=%d, firstName=%s, lastName=%s]"
+				.formatted(id, firstName, lastName);
 	}
-
 }

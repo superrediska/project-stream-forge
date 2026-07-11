@@ -11,27 +11,26 @@ import lombok.Setter;
 public class Country {
 
 	private String code;
-    private String name;
-    private String continent;
-    private double surfaceArea;
-    private int population;
-    private double gnp;
-    private int capital;
+	private String name;
+	private String continent;
+	private String region;
+	private double surfaceArea;
+	private Integer indepYear;
+	private int population;
+	private Double lifeExpectancy;
+	private double gnp;
+	private Double gnpOld;
+	private String localName;
+	private String governmentForm;
+	private String headOfState;
+	private Integer capital;
+	private String code2;
 	private List<City> cities;
+	private List<CountryLanguage> languages;
 
 	{
 		cities = new ArrayList<>();
-	}
-
-	public Country(String code, String name, String continent, int population,
-			double surfaceArea, double gnp, int capital) {
-		this.code = code;
-		this.name = name;
-		this.continent = continent;
-		this.surfaceArea = surfaceArea;
-		this.population = population;
-		this.capital = capital;
-		this.gnp = gnp;
+		languages = new ArrayList<>();
 	}
 
     @Override
@@ -44,12 +43,8 @@ public class Country {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
+		if (this == obj) return true;
+		if (obj == null || getClass() != obj.getClass()) return false;
 		Country other = (Country) obj;
 		if (code == null) {
             return other.code == null;
@@ -58,7 +53,6 @@ public class Country {
 
 	@Override
 	public String toString() {
-		return "Country [ name=" + name + ", population=" + population + "]";
+		return "Country [ name=%s, population=%d]".formatted(name, population);
 	}
-
 }

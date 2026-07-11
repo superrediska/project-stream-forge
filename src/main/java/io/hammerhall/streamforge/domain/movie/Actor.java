@@ -1,4 +1,4 @@
-package io.hammerhall.streamforge.domain.world;
+package io.hammerhall.streamforge.domain.movie;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,13 +8,16 @@ import lombok.Setter;
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class City {
+public class Actor {
 
 	private int id;
-	private String name;
-	private String countryCode;
-	private String district;
-	private int population;
+	private String firstName;
+	private String lastName;
+	private String gender;
+
+	public String getFullName() {
+		return (firstName + " " + lastName).trim();
+	}
 
 	@Override
 	public int hashCode() {
@@ -28,14 +31,12 @@ public class City {
 	public boolean equals(Object obj) {
 		if (this == obj) return true;
 		if (obj == null || getClass() != obj.getClass()) return false;
-		City other = (City) obj;
-
+		Actor other = (Actor) obj;
 		return id == other.id;
 	}
 
 	@Override
 	public String toString() {
-		return "City [id=%d, name=%s, district=%s, population=%d, countryCode=%s]"
-				.formatted(id, name, district, population, countryCode);
+		return "Actor [id=%d, firstName=%s, lastName=%s, gender=%s]".formatted(id, firstName, lastName, gender);
 	}
 }

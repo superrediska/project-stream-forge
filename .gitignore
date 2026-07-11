@@ -5,7 +5,17 @@ target/
 .kotlin
 
 ### IntelliJ IDEA ###
-/.idea/
+# Игнорируем всю папку .idea
+.idea/*
+
+# Но оставляем то, что хотим шарить с командой
+!.idea/inspectionProfiles/
+!.idea/codeStyles/
+!.idea/dictionaries/
+
+# Внутри оставленных папок явно разрешаем содержимое
+!.idea/inspectionProfiles/*.xml
+!.idea/codeStyles/*.xml
 *.iws
 *.iml
 *.ipr
@@ -34,4 +44,3 @@ build/
 
 ### Mac OS ###
 .DS_Store
-

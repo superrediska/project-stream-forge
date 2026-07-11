@@ -15,10 +15,10 @@ public class Genre {
 	private String name;
 
     @Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
-		Genre genre = (Genre) o;
+	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (obj == null || getClass() != obj.getClass()) return false;
+		Genre genre = (Genre) obj;
 		return id == genre.id;
 	}
 
@@ -29,7 +29,7 @@ public class Genre {
 
 	@Override
 	public String toString() {
-		return "Genre [id=" + id + ", name=" + name + "]";
+		return "Genre [id=%d, name=%s]".formatted(id, name);
 	}
 
 }
