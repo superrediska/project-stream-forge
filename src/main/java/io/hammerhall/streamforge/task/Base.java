@@ -17,45 +17,79 @@ import io.hammerhall.streamforge.service.WorldService;
 import io.hammerhall.streamforge.service.WorldServiceImpl;
 import java.util.Collection;
 
+/**
+ * Общий предок задач: даёт доступ к данным курса.
+ * <p>
+ * Данные грузятся <b>при первом обращении</b>, а не при загрузке класса.
+ * Ничего не вызвали — ничего не прочитано.
+ */
 public abstract class Base {
 
-    protected static final MovieService MOVIE_SERVICE = new MovieServiceImpl(new MovieRepository());
+    /**
+     * Держатель данных о фильмах.
+     * <p>
+     * Вложенный класс здесь — не украшение, а весь смысл правки. JVM
+     * инициализирует класс в момент первого активного использования и делает
+     * это потокобезопасно, без единой блокировки в нашем коде (JLS 12.4).
+     * Пока никто не позвал {@link #movies()} или соседей, {@code MovieHolder}
+     * не инициализирован, {@link MovieRepository} не построен и датасет не
+     * развёрнут в память.
+     * <p>
+     * Будь поле объявлено прямо в {@code Base}, оно бы читалось при загрузке
+     * {@code Base} — то есть при создании <b>любой</b> задачи, даже про страны,
+     * даже если данные ей не нужны вовсе. А это миллионы записей: 388 269
+     * фильмов, 817 718 актёров, 3 431 966 ролей.
+     */
+    private static final class MovieHolder {
+        private static final MovieService SERVICE =
+                new MovieServiceImpl(new MovieRepository());
+    }
 
-    protected static final WorldService WORLD_SERVICE = new WorldServiceImpl(new WorldRepository());
+    /**
+     * Держатель данных о мире — отдельно от фильмов, и это намеренно.
+     * <p>
+     * Один держатель на двоих означал бы, что задача про страны платит
+     * за фильмы, а задача про фильмы — за страны. Раздельные держатели
+     * инициализируются независимо: берётся только то, что спросили.
+     */
+    private static final class WorldHolder {
+        private static final WorldService SERVICE =
+                new WorldServiceImpl(new WorldRepository());
+    }
 
     protected Collection<Movie> movies() {
-        return MOVIE_SERVICE.findAllMovies();
+        return MovieHolder.SERVICE.findAllMovies();
     }
 
     protected Collection<Genre> genres() {
-        return MOVIE_SERVICE.findAllGenres();
+        return MovieHolder.SERVICE.findAllGenres();
     }
 
     protected Collection<Director> directors() {
-        return MOVIE_SERVICE.findAllDirectors();
+        return MovieHolder.SERVICE.findAllDirectors();
     }
 
     protected Collection<Actor> actors() {
-        return MOVIE_SERVICE.findAllActors();
+        return MovieHolder.SERVICE.findAllActors();
     }
 
     protected Collection<Role> roles() {
-        return MOVIE_SERVICE.findAllRoles();
+        return MovieHolder.SERVICE.findAllRoles();
     }
 
     protected Collection<DirectorGenre> directorGenres() {
-        return MOVIE_SERVICE.findAllDirectorGenres();
+        return MovieHolder.SERVICE.findAllDirectorGenres();
     }
 
     protected Collection<Country> countries() {
-        return WORLD_SERVICE.findAllCountries();
+        return WorldHolder.SERVICE.findAllCountries();
     }
 
     protected Collection<City> cities() {
-        return WORLD_SERVICE.findAllCities();
+        return WorldHolder.SERVICE.findAllCities();
     }
 
     protected Collection<CountryLanguage> languages() {
-        return WORLD_SERVICE.findAllLanguages();
+        return WorldHolder.SERVICE.findAllLanguages();
     }
 }
